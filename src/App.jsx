@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import Label from './components/Labels/Label.jsx'
+import Input from './components/Inputs/Input.jsx'
+import Button from './components/Buttons/Button.jsx'
 
 function App() {
   const [email, setEmail] = useState('')
@@ -44,13 +47,13 @@ function App() {
     { error && <p style={{ color: 'red' }}>{error}</p> }
     { success && <p style={{ color: 'green' }}>Cadastro realizado com sucesso!</p> }
     <form>
-      <label htmlFor="email">Email: </label>
-      <input type='text' id='email' value={email} onChange={(e) => setEmail(e.target.value)}  /><br></br>
-      <label htmlFor='password'>Senha: </label>
+      <Label text='Email: ' htmlFor='email' />
+      <Input type='text' id='email' value={email} onChange={(e) => setEmail(e.target.value)}  /><br></br>
+      <Label text='Senha: ' htmlFor='password' />
       <input type='password' id='password' value={password} onChange={(e) => setPassword(e.target.value)} /><br></br>
-      <label htmlFor='confirmPassword'>Confirmar senha: </label>
-      <input type='password' id='confirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} /><br></br>
-      <button type='submit' onClick={handleSubmit}>Enviar</button>    
+      <Label text='Confirmar Senha: ' htmlFor='confirmPassword' />
+      <Input type='password' id='confirmPassword' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} /><br></br>
+      <Button type='submit' onClick={handleSubmit} text='Enviar' />   
     </form>
     </>
   )
